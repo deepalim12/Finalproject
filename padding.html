@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HospEase</title>
+  
+  <meta name="title" content="Welcome to HospEase">
+  <meta name="description" content="This is a medical html template made by SDPR">
+  <link rel="short icon" href="./favicon.svg" typr="image/sav+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="pad.css">
+
+    <link rel="preload" as="image" href="hospi.jpg">
+    <link rel="preload" as="image" href="hero-bg.png">
+
+  
+</head>
+<body>
+   
+  <div class="preloader" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+<header class="header active" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="logo.jpeg"  width="136" height="46" alt="logo">
+      </a>
+
+      <nav class="navbar active" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="#" class="logo">
+            <img src="logo.jpeg" width="136" height="46" alt=" home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Doctors</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Services</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Blog</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Contact</a>
+          </li>
+
+        </ul>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <a href="#" class="btn has-before title-md">Make Appointment</a>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+  <main>
+    <article>
+       <section class="section hero" style="background-image: url('hero-bg.png')" aria-label="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle has-before" data-reveal="left">Welcome To Doclab</p>
+
+            <h1 class="headline-lg hero-title" data-reveal="left" >
+              <i>Finding best Hospital <br>
+              Nearby.</i>
+            </h1>
+
+            <div class="hero-card" data-reveal="left">
+
+              <p class="title-lg card-text">
+                Search doctors. clinics. hospitals. etc.
+              </p>
+
+              <div class="wrapper">
+
+                <div class="input-wrapper title-lg">
+                  <input type="text" name="location" placeholder="Locations" class="input-field">
+
+                  <ion-icon name="location"></ion-icon>
+                </div>
+
+                <button class="btn has-before">
+                  <ion-icon name="search"></ion-icon>
+
+                  <span class="span title-md">Find Now</span>
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <figure class="hero-banner" data-reveal="right">
+            <img src="doci.jpg" width="800px" height="800px" loading="eager" alt="hero banner"
+              class="w-100">
+          </figure>
+
+        </div>
+      </section>
+      <section class="service" aria-label="service">
+        <div class="container">
+
+          <ul class="service-list">
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="icon-1.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="#">Psychiatry</a>
+                </h3>
+
+                <p class="card-text">
+                  Psychiatrists (MDs or DOs) who are specialized in mental health, including 
+                  substance use disorders. They can assess both the mental and physical aspects of psychological problems.
+                </p>
+
+                <button class="btn-circle" aria-label="read more about psychiatry">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="icon-2.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="#">Gynecology</a>
+                </h3>
+
+                <p class="card-text">
+                  A gynecologist who are specialized in female reproductive health. They diagnose 
+                  and treat issues related to the female reproductive tract. This includes
+                   the uterus, fallopian tubes, ovaries, and breasts.
+                </p>
+
+                <button class="btn-circle" aria-label="read more about Gynecology">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="icon-3.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="#">Orthopedics</a>
+                </h3>
+
+                <p class="card-text">
+                  Orthopedists regularly treat broken bones, muscle injuries, and 
+                  tendon tears or ruptures. They also make a plan 
+                  to help you avoid future injuries.
+                </p>
+
+                <button class="btn-circle" aria-label="read more about Pulmonology">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="icon-4.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="#">Neurologist</a>
+                </h3>
+
+                <p class="card-text">
+                  A neurologist will treat and manage disorders of the brain
+                   and nervous system (brain, spinal cord and nerves). A neurologist knows the anatomy, 
+                   function and conditions that affect your nerves and nervous system. 
+                </p>
+
+                <button class="btn-circle" aria-label="read more about Orthopedics">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+      <form id="userForm">
+        <h2>Hospital Finder</h2>
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="tel" id="phone" placeholder="Phone" required />
+        <input type="text" id="place" placeholder="City" required />
+        <input type="text" id="location" placeholder="Location" required />
+        <button type="submit">Search</button>
+        <p id="result"></p>
+      </form>
+      <div class="course">
+
+        <!-- NEW HEADER SECTION -->
+        <h1>Latest Article</h1>
+        <p>Wanna know something interesting?</p>
+      <div class="row">  <!-- START: Single row containing all columns -->
+
+        <div class="course-col">
+          <i><h3>Could intermittent fasting reduce breast cancer<br>28 March, 2025</h3>
+          <p>If intermittent fasting turns out to be a successful fat-loss strategy that improves metabolic
+            health, we could potentially harness these effects to reduce the risk that breast cancer will
+             come back after treatment. </p></i>
+        </div>
+    
+        <div class="course-col">
+          <i><h3>Give children more autonomy during the pandemic<br>28 March, 2025</h3>
+          <p> Autonomy-based parenting involves allowing a child to operate independently within reasonable boundaries.
+            With this parenting technique, the adult communicates a nonjudgmental way to the child that allows them
+             to explore their own strategies and solutions without fear of reprisal.</p></i>
+        </div>
+    
+        <div class="course-col">
+          <i><h3>How do binge eating and drinking impact the liver?<br>28 March, 2025</h3>
+          <p>A recent study that simulated a tailgate party found that eating foods high in carbohydrates
+            while consuming relatively lower amounts of alcohol was associated with increased liver fat. </p></i>
+        </div>
+    
+    </div>
+     
+    <footer class="footer">
+      <div class="container">
+  
+        <div class="footer-top">
+  
+          <div class="footer-list" data-reveal="bottom">
+            <h3 class="headline-sm footer-list-title"style="font-size:10vm">About Us</h3>
+            <p class="text">
+              We, as a team, wanted to create a platform where people can easily navigate the best
+              hospitals nearby in any case of emergency by simply entering their location.
+            </p>
+            <address class="address">
+              <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
+              <span class="text">
+                A-10 Ambedkarpuram <br>
+                Armapur, FL 33634
+              </span>
+            </address>
+          </div>
+  
+          <div class="footer-list" data-reveal="bottom">
+            <h3 class="headline-sm footer-list-title">Services</h3>
+            <ul>
+              <li><a href="#" class="text footer-link">Conditions</a></li>
+              <li><a href="#" class="text footer-link">Listing</a></li>
+              <li><a href="#" class="text footer-link">How It Works</a></li>
+              <li><a href="#" class="text footer-link">What We Offer</a></li>
+              <li><a href="#" class="text footer-link">Latest News</a></li>
+              <li><a href="#" class="text footer-link">Contact Us</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-list" data-reveal="bottom">
+            <h3 class="headline-sm footer-list-title">Useful Links</h3>
+            <ul>
+              <li><a href="#" class="text footer-link">Conditions</a></li>
+              <li><a href="#" class="text footer-link">Terms of Use</a></li>
+              <li><a href="#" class="text footer-link">Our Services</a></li>
+              <li><a href="#" class="text footer-link">Join as a Doctor</a></li>
+              <li><a href="#" class="text footer-link">New Guests List</a></li>
+              <li><a href="#" class="text footer-link">The Team List</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-list" data-reveal="bottom">
+            <h3 class="headline-sm footer-list-title">Subscribe</h3>
+            <form action="" class="footer-form">
+              <input type="email" name="email" placeholder="Email" class="input-field title-lg" aria-label="Email Address" required>
+              <button type="submit" class="btn has-before title-md" aria-label="Subscribe to newsletter">Subscribe</button>
+            </form>
+            <p class="text">
+              Get the latest updates via email. Any time you may unsubscribe.
+            </p>
+          </div>
+  
+        </div><!-- /.footer-top -->
+  
+        <div class="footer-bottom">
+          <p class="text copyright">
+            © HospEase | All Rights Reserved by codewith
+          </p>
+  
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link" aria-label="Visit our Facebook page" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-facebook" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="Visit our Twitter profile" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-twitter" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="Visit our Google profile" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-google" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="Visit our LinkedIn profile" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="Visit our Pinterest profile" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-pinterest" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div><!-- /.footer-bottom -->
+  
+      </div><!-- /.container -->
+    </footer>
+  
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+      <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+  
+    <!-- Your page scripts -->
+    <script src="script.js" defer></script>
+    <!-- Ionicons scripts are already in the head -->
+  
+
+
+
+
+
+ 
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+  <script src="script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+</body>
+</html>

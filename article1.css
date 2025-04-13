@@ -1,0 +1,89 @@
+/* article1.css */
+
+/* Basic Reset & Body Styling */
+body {
+    font-family: Arial, sans-serif; /* Sets a common, readable font */
+    margin: 0; /* Removes default browser margin */
+    padding: 0; /* Removes default browser padding */
+    background-color: #f0f2f5; /* Light grey background for the whole page */
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Container for the whole article */
+.article-container {
+    max-width: 900px; /* Limits width for better readability on large screens */
+    margin: 30px auto; /* Centers the container horizontally with space top/bottom */
+    background-color: #efcfd9; /* White background for the container itself */
+    padding: 25px 30px; /* Padding inside the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+/* Styling for each content section box */
+.content-section {
+    background-color: #e3d8dd; /* Very light blue background for content boxes */
+    padding: 20px; /* Padding inside each section */
+    margin-bottom: 25px; /* Space between sections */
+    border-radius: 5px; /* Rounded corners for the sections */
+    border: 1px solid #d0e0e8; /* Subtle border */
+}
+
+/* Specific Styling for Headings */
+h1, h2, h3 {
+    color: #0056b3; /* A strong blue color for headings */
+    margin-top: 0; /* Removes default top margin often added by browsers */
+}
+
+h1 {
+    border-bottom: 2px solid #cce0ff; /* Underline for the main title */
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* Space below H1 */
+    font-size: 2.2em; /* Larger font size for main title */
+}
+
+h2 {
+    margin-bottom: 15px; /* Space below H2 */
+    font-size: 1.8em;
+}
+
+h3 {
+    margin-bottom: 10px; /* Space below H3 */
+    font-size: 1.4em;
+}
+
+/* Paragraph styling */
+p {
+    margin-bottom: 15px; /* Space below paragraphs */
+}
+
+/* Image Styling */
+.content-section img {
+    max-width: 100%; /* Makes image responsive within its container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Helps remove extra space below the image */
+    margin: 20px auto; /* Centers the image and adds vertical space */
+    border-radius: 5px; /* Optional: rounded corners for the image */
+    /* Note: Inline width/height in HTML might override this. It's better to remove them from HTML if possible */
+}
+
+/* Call to Action Box Styling */
+.call-to-action {
+    background-color: #f0eeee; /* A distinct light cyan/blue background */
+    color: #0c5460; /* Darker text color for contrast */
+    padding: 20px;
+    margin-top: 30px; /* Extra space above the call to action */
+    border-radius: 5px;
+    text-align: center; /* Centers the text inside */
+    border: 1px solid #de4662; /* Matching border color */
+}
+
+/* Ensure the H3 inside the CTA uses the CTA text color */
+.call-to-action h3 {
+    color: #0c5460;
+    margin-bottom: 0; /* Remove extra space below H3 if it's the only element */
+}
+
+/* Fix for potential duplicate HTML structure in the provided example */
+/* If the nested HTML structure was intended, this might be needed, but it's best to fix the HTML */
+/* body > body { display: none; } */ /* Hide nested body if it appears */

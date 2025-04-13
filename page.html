@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychiatry</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linking the CSS file -->
+</head>
+<body>
+    <h1>Psychiatry</h1>
+    <p>Psychiatry is the branch of medicine focused on the diagnosis, treatment and prevention of mental, emotional and behavioral disorders.</p>
+
+    <h1>Psychiatrist</h1>
+    <p>
+        A psychiatrist is a medical doctor (an M.D. or D.O.) who specializes in mental health, including substance use disorders. Psychiatrists are qualified to assess both the mental and physical aspects of psychological problems.
+    </p>
+    <img src="psychiatry.jpg" alt="Mental Health" width="600" style="display: block; margin: 0 auto;">
+
+  
+    <br/>
+
+
+    <h1>Best Psychiatrists of India</h1>
+
+    <div class="doctor-section">
+        <div class="doctor-card">
+            <a href="https://dranilyadav.com/">Dr. Anil Yadav</a>
+          
+           <a href="tel:8375003702">Call : 87092 99986</a> 
+            <br/>
+            <img src="anil-yadav.png" width="250" height="250" alt="Anil Yadav">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://patnapsychiatry.in/">Dr. Saurabh Kumar</a>
+           <a href="tel:87092 99986">Call : 87092 99986</a> 
+            <br/>
+            <img src="con-20.jpg" width="250" height="250" alt="Dr. Saurabh Kumar">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://www.americancenterforneuropsychiatry.com/">Dr. Kranthi Kiran</a>
+                
+            <a href="tel:8520001753">Call : 87092 99986</a> 
+                
+            <br/>
+            <img src="Dr-Kranthi-Kiran.webp" width="250" height="250" alt="Dr. Kranthi Kiran">
+        </div>
+    </div>
+    <div id="imgModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" alt="Doctor Enlarged">
+    </div>
+    <script>
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        const doctorImages = document.querySelectorAll(".doctor-card img");
+    
+        doctorImages.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+            });
+        });
+    
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    
+        // Optional: Close modal when clicking outside the image
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+    
+</body>
+</html>

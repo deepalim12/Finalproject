@@ -1,0 +1,1405 @@
+:root{
+    /color font/
+    background: #2A7B9B;
+background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 55%, rgba(180, 184, 79, undefined) 61%);
+--ff-oswald: 'Oswald', sans-serif;
+--ff-rubik: 'Rubik', sans-serif;
+
+--headline-lg: 5rem;
+--headline-md: 3rem;
+--headline-sm: 2rem;
+--title-lg: 1.8rem;
+--title-md: 1.5rem;
+--title-sm: 1.4rem;
+
+--fw-500: 500;
+--fw-700: 700;
+
+--section-padding: 120px;
+
+--shadow-1: 0px 2px 20px hsla(209, 36%, 72%, 0.2);
+--shadow-2: 0 4px 16px hsla(0, 0%, 0%, 0.06);
+
+--radius-circle: 50%;
+--radius-12: 12px;
+--radius-6: 6px;
+--radius-4: 4px;
+
+--transition-1: 0.25s ease;
+--transition-2: 0.5s ease;
+--transition-3: 1s ease;
+--cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+--cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+--header-height: 70px; /* Adjusted height slightly */
+
+/* Define max logo height (relative to header height) */
+--logo-max-height: calc(var(--header-height) - 10px); 
+
+--z-index-header: 1000;
+--z-index-overlay: 1010;
+--z-index-navbar: 1020;
+--transition-speed: 0.3s;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+time,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  outline: none;
+}
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-size: 10px;
+  font-family: var(--ff-rubik);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  font-size: 1.6rem;
+  color: var(--independece);
+  line-height: 1.8;
+  overflow: hidden;
+}
+form {
+    width: 320px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #2c2c2c;
+    border-radius: 8px;
+  }
+
+  input, button {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  input {
+    background: #444;
+    color: white;
+  }
+
+  button {
+    background: #28a745;
+    color: white;
+    cursor: pointer;
+  }
+
+
+body.loaded { overflow-y: visible; }
+
+body.nav-active { overflow: hidden; }
+
+.container { padding-inline: 16px; }
+
+.headline-lg {
+  font-size: var(--headline-lg);
+  color: var(--white);
+  font-weight: var(--fw-500);
+  line-height: 1.2;
+}
+
+.headline-md {
+  font-size: var(--headline-md);
+  font-weight: var(--fw-700);
+}
+
+.headline-lg,
+.headline-md { font-family: var(--ff-oswald); }
+
+.headline-md,
+.headline-sm { line-height: 1.3; }
+
+.headline-md,
+.headline-sm { color: var(--midnight-green); }
+
+.headline-sm { font-size: var(--headline-sm); }
+
+.title-lg { font-size: var(--title-lg); }
+
+.title-md { font-size: var(--title-md); }
+
+.title-sm { font-size: var(--title-sm); }
+
+.social-list { display: flex; }
+
+.section { padding-block: var(--section-padding); }
+
+.has-before,
+.has-after {
+  position: relative;
+  z-index: 1;
+}
+
+.has-before::before,
+.has-after::after {
+  content: "";
+  position: absolute;
+}
+
+.btn {
+  background-color: var(--verdigris);
+  color: var(--white);
+  font-weight: var(--fw-700);
+  padding: 12px 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--radius-6);
+  overflow: hidden;
+}
+
+.btn::before {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--eerie-black);
+  border-radius: var(--radius-6);
+  transition: var(--transition-2);
+  z-index: -1;
+}
+
+.btn:is(:hover, :focus-visible)::before { transform: translateX(100%); }
+
+.w-100 { width: 100%; }
+
+.grid-list {
+  display: grid;
+  gap: 40px 28px;
+}
+
+.text-center { text-align: center; }
+
+[data-reveal] {
+  opacity: 0;
+  transition: var(--transition-2);
+}
+
+[data-reveal].revealed { opacity: 1; }
+
+[data-reveal="bottom"] { transform: translateY(50px); }
+
+[data-reveal="bottom"].revealed { transform: translateY(0); }
+
+[data-reveal="left"] { transform: translateX(-50px); }
+
+[data-reveal="right"] { transform: translateX(50px); }
+
+[data-reveal="left"].revealed,
+[data-reveal="right"].revealed { transform: translateX(0); }
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--verdigris);
+  display: grid;
+  place-items: center;
+  z-index: 6;
+  transition: var(--transition-1);
+}
+
+.preloader.loaded {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.preloader .circle {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--white);
+  border-radius: var(--radius-circle);
+  border-block-start-color: transparent;
+  animation: rotate360 1s ease infinite;
+}
+
+@keyframes rotate360 {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(1turn); }
+}
+
+/* --- Prevent content from hiding behind fixed header --- */
+body {
+  /* CRITICAL: Add top padding equal to the fixed header height */
+  padding-top: var(--header-height);
+}
+
+/* --- Header Base Styles (Fixed) --- */
+.header {
+  /* Fixed Positioning & Dimensions */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: var(--z-index-header);
+
+  /* Visual Section Styling */
+  background-color: var(--clr-white, #ffffff);
+  /* Choose one or both: Subtle shadow or a bottom border */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  /* border-bottom: 1px solid var(--clr-border-light, #e0e0e0); / / Optional border */
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+
+  /* Transitions */
+  transition: background-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease,
+              border-bottom var(--transition-speed) ease;
+}
+
+/* --- Container within Header --- */
+.header .container {
+  width: 100%;
+  max-width: 1200px; /* Or your preferred max-width */
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping for the button */
+}
+
+/* --- Logo Styling (Shorter Image) --- */
+.logo img {
+  display: block; /* Remove extra space below image */
+  /* Control height explicitly */
+  max-height: var(--logo-max-height); /* Use variable */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure image scales nicely within bounds */
+}
+
+/* --- Mobile Navigation Styles (< 992px) --- */
+@media (max-width: 991px) {
+  /* (Keep your existing mobile styles here - simplified example below) */
+
+  /* Ensure fixed header height consistency if needed */
+  /* .header { --header-height: 65px; height: var(--header-height); } */
+  /* body { padding-top: var(--header-height); } */
+
+  .navbar { /* Mobile slide-in styles */
+    display: block; position: fixed; top: 0; right: -100%; width: min(100%, 280px);
+    height: 100vh; background-color: var(--clr-bg-light, #f8f9fa); z-index: var(--z-index-navbar);
+    padding: 1.5rem; box-shadow: -2px 0 5px rgba(0,0,0,0.1); transition: right var(--transition-speed) ease;
+    overflow-y: auto;
+  }
+  .navbar.active { right: 0; }
+  .navbar-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--clr-border-light); }
+  .nav-close-btn { display: block; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--clr-oxford-blue); }
+  .navbar-list { display: flex; flex-direction: column; gap: 1rem; list-style: none; padding: 0; margin: 0 0 1.5rem 0; }
+  .navbar-link { /* Your mobile link styles */ color: var(--clr-oxford-blue); text-decoration: none; padding: 0.5rem 0; }
+  .navbar .social-list { display: flex; justify-content: center; gap: 1rem; list-style: none; padding: 1rem 0 0 0; margin: 1.5rem 0 0 0; border-top: 1px solid var(--clr-border-light); }
+  .social-link { color: var(--clr-oxford-blue); font-size: 1.5rem; }
+
+  .nav-open-btn { display: block; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--clr-oxford-blue); }
+  .overlay { display: block; /* Needs JS toggle */ position: fixed; inset: 0; background-color: rgba(0,0,0,0.5); z-index: var(--z-index-overlay); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .overlay.active { opacity: 1; visibility: visible; }
+  .header .btn { display: none; } /* Hide appointment button */
+  .navbar { margin-inline-start: unset; } /* Reset desktop margin */
+}
+
+/* --- Desktop - Button Wraps (992px - 1199px) --- */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Hide mobile elements */
+  .nav-open-btn, .overlay, .navbar-top, .navbar .social-list, .nav-close-btn { display: none; }
+
+  /* Desktop navbar base styles */
+  .navbar, .navbar.active, .navbar-list { all: unset; display: block; }
+  .navbar { order: 1; margin-inline: auto; padding-inline: 1rem; }
+  .navbar-list { display: flex; justify-content: center; gap: 8px; }
+  .navbar-item { border-block-start: none; }
+  .navbar-link { /* Your link styles */
+    --title-md: 1.7rem; font-weight: var(--fw-500, 500); color: var(--clr-oxford-blue, #333366);
+    padding: 8px 16px; border-radius: 4px; text-decoration: none; position: relative; overflow: hidden;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  .navbar-link::after { /* Your underline effect */
+    content: ''; position: absolute; bottom: 4px; left: 16px; right: 16px; height: 2px;
+    background-color: var(--clr-royal-blue-dark, #0052cc); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease-out;
+  }
+  .navbar-link:is(:hover, :focus) { color: var(--clr-royal-blue-dark, #0052cc); }
+  .navbar-link:is(:hover, :focus)::after { transform: scaleX(1); }
+
+  /* Appointment Button Styling (when wrapped) */
+  .header .btn {
+    display: block; /* Or inline-block depending on base styles */
+    order: 2;
+    flex-basis: 100%; /* Force to new line */
+    margin-top: 8px; /* Smaller space when wrapped */
+    margin-left: auto; /* Push container to the right */
+    width: fit-content; /* Make container only as wide as button */
+  }
+}
+
+/* --- Desktop - Wide (>= 1200px) --- */
+@media (min-width: 1200px) {
+  /* Hide mobile elements */
+  .nav-open-btn, .overlay, .navbar-top, .navbar .social-list, .nav-close-btn { display: none; }
+
+  /* Desktop navbar base styles */
+  .navbar, .navbar.active, .navbar-list { all: unset; display: block; }
+  .header .container { flex-wrap: nowrap; } /* Keep inline */
+  .navbar { order: 0; margin-inline-start: auto; margin-inline-end: 2rem; padding-inline: 0; }
+  .navbar-list { display: flex; gap: 12px; }
+  .navbar-item { border-block-start: none; }
+  .navbar-link { /* Your link styles */
+    --title-md: 1.7rem; font-weight: var(--fw-500, 500); color: var(--clr-oxford-blue, #333366);
+    padding: 8px 16px; border-radius: 4px; text-decoration: none; position: relative; overflow: hidden;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  .navbar-link::after { /* Your underline effect */
+    content: ''; position: absolute; bottom: 4px; left: 16px; right: 16px; height: 2px;
+    background-color: var(--clr-royal-blue-dark, #0052cc); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease-out;
+  }
+  .navbar-link:is(:hover, :focus) { color: var(--clr-royal-blue-dark, #0052cc); }
+  .navbar-link:is(:hover, :focus)::after { transform: scaleX(1); }
+
+  /* Appointment Button Styling (Inline) */
+  .header .btn {
+    display: inline-block; /* Or your preferred display type */
+    order: 0; flex-basis: auto; margin-top: 0; margin-left: 0;
+    width: auto; /* Reset width */
+  }
+}
+
+.social-list {
+  justify-content: center;
+  gap: 20px;
+  color: var(--white);
+  font-size: 1.8rem;
+}
+
+.overlay {
+  right: -100%;
+  background-color: var(--black);
+  opacity: 0.3;
+  visibility: hidden;
+  transition: var(--transition-2);
+  z-index: 2;
+}
+
+.overlay.active {
+  transform: translateX(-100%);
+  visibility: visible;
+}
+
+.hero-banner { display: none; }
+
+.hero {
+  background-color: var(--midnight-green);
+  --section-padding: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-subtitle {
+  color: var(--white);
+  font-weight: var(--fw-500);
+  padding-inline-start: 80px;
+}
+
+.hero-subtitle::before {
+  top: 50%;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background-color: var(--white);
+}
+
+.hero-title { margin-block: 20px 30px; }
+
+.hero-card {
+  background-color: var(--white);
+  border-radius: var(--radius-12);
+  padding: 20px;
+}
+
+.hero-card .card-text {
+  color: var(--eerie-black);
+  border-block-end: 1px solid var(--midnight-green_a25);
+  padding-block-end: 12px;
+  margin-block-end: 14px;
+}
+
+.hero-card .input-wrapper { position: relative; }
+
+.hero-card .input-field {
+  color: var(--eerie-black);
+  border-block-end: 1px solid var(--gainsboro);
+  padding-inline-end: 18px;
+}
+
+.hero-card .input-wrapper ion-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--verdigris);
+}
+
+.hero-card .btn {
+  width: 100%;
+  justify-content: center;
+  margin-block-start: 16px;
+}
+
+
+.service-list {
+  padding-block: 60px 30px;
+  padding-inline: 25px;
+  display: grid;
+  gap: 30px;
+  border-radius: var(--radius-12);
+  margin-block-start: -60px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-1);
+}
+
+.service-card { text-align: center; }
+
+.service-card .card-icon,
+.btn-circle {
+  max-width: max-content;
+  margin-inline: auto;
+}
+
+.service-card .card-icon { margin-block-end: 25px; }
+
+.service-card .card-text { margin-block: 20px 15px; }
+
+.service-card .btn-circle {
+  color: var(--verdigris);
+  font-size: 2rem;
+  padding: 18px;
+  border-radius: var(--radius-circle);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+}
+
+.service-card .btn-circle:is(:hover, :focus-visible) {
+  background-color: var(--verdigris);
+  color: var(--white);
+}
+
+
+
+.about { padding-block-end: 0; }
+
+.about .container {
+  display: grid;
+  gap: 20px;
+}
+
+.about .section-text { margin-block: 20px 35px; }
+
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 15px;
+}
+
+.tab-btn {
+  background-color: var(--alice-blue);
+  color: var(--midnight-green);
+  padding: 7px 30px;
+  border-radius: var(--radius-6);
+  font-weight: var(--fw-700);
+}
+
+.tab-btn.active {
+  background-color: var(--verdigris);
+  color: var(--white);
+}
+
+.tab-text {
+  color: var(--midnight-green);
+  margin-block: 35px;
+}
+
+.about-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block-end: 10px;
+}
+
+.about-item ion-icon {
+  color: var(--verdigris);
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+
+.listing { background-color: var(--alice-blue); }
+
+.listing-card {
+  padding: 25px 16px;
+  display: flex;
+  gap: 20px;
+  border: 2px solid var(--middle-blue-green_40);
+  border-radius: var(--radius-12);
+  transition: var(--transition-1);
+}
+
+.listing-card:is(:hover, :focus-visible) { border-color: var(--verdigris); }
+
+.listing-card .card-title {
+  margin-block-end: 5px;
+  font-family: var(--ff-oswald);
+}
+
+.listing-card .card-text { color: var(--midnight-green); }
+
+
+.course{
+  width:80%;
+  margin: auto;
+  text-align:center;
+  padding-top:100px
+}
+h1{
+  font-size:36px;
+  font-weight:600;
+}
+p{
+  color:#0e0707;
+  font-size:14px;
+  font-weight:300;
+  line-height:22px;
+  padding:10px;
+}
+.row{
+  margin-top:5%;
+  display:flex;
+  justify-content:space-between;
+
+}
+.course-col{
+  flex-basis:31%;
+  background: #47c272;
+  border-radius:10px;
+  margin-bottom:5%;
+  padding:20px 12px;
+  box-sizing:border-box;
+}
+h3{
+  text-align:center;
+  font-weight:600;
+  margin:10px 0;
+
+}
+.course-col:hover{
+  box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+@media (max-width:700px){
+  .row{
+    flex-direction:column
+  }
+}
+/* --- General Variables & Base (Adapt colors as needed) --- */
+:root {
+  --primary-color: #4CAF50;
+  --primary-hover-color: #45a049;
+  /* Define other colors if needed */
+  --footer-bg: #1f1f1f; /* Assuming dark background based on input field */
+  --footer-text-dark: #0a0505; /* Your dark text colors */
+  --footer-title-dark: #200a0a;
+  --footer-link-dark: #1c0505;
+  --footer-social-dark: #080202;
+  --footer-social-hover-dark: #080404;
+  --footer-copyright-dark: #120707;
+  --footer-input-text: #170909;
+  --footer-input-placeholder: #1a0606;
+  --footer-btn-text: #1e0b0b;
+  --footer-backtop-text: #120303;
+  --footer-border-dark: #444;
+  --footer-input-bg-dark: #333;
+  --footer-input-border-dark: #555;
+}
+
+/* --- Base Footer Styles --- */
+footer.site-footer { /* Use a specific class for the footer */
+  background-color: var(--footer-bg); /* Set background here if it's dark */
+  /* OR Set background color for a light theme if needed */
+  /* background-color: #ffffff; */
+  padding: 80px 0 30px;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* --- Footer Top Section (Columns) --- */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px 30px;
+  margin-bottom: 50px;
+}
+
+/* --- Footer List (Column) Styling --- */
+
+.footer-list-title {
+  color: var(--footer-title-dark); /* Use appropriate color variable */
+  font-size: 1.4rem; /* Increased font size */
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-list .text {
+  font-size: 1rem; /* Increased font size */
+  color: var(--footer-text-dark);
+  margin-bottom: 15px;
+}
+
+/* --- Specific List Content: Address --- */
+.address { /* Renamed class in previous HTML example */
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 15px;
+  font-style: normal;
+}
+
+.address ion-icon {
+  font-size: 1.6rem; /* Slightly larger icon */
+  color: var(--primary-color);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.address .text { /* Text specifically within address */
+  font-size: 1rem; /* Increased font size */
+  color: var(--footer-text-dark);
+  margin-bottom: 0;
+}
+
+/* --- Footer Links --- */
+.footer-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: var(--footer-link-dark);
+  font-size: 1rem; /* Increased font size */
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  font-size:50px;
+  color: var(--primary-color);
+  padding-left: 5px;
+}
+
+/* --- Subscribe Form & Box --- */
+:root {
+  --subscribe-box-bg: rgba(255, 255, 255, 0.05); /* Subtle background for dark footers */
+  /* OR --subscribe-box-bg: #f8f9fa; for light footers */
+  --subscribe-box-padding-y: 35px; /* Vertical padding */
+  --subscribe-box-padding-x: 30px; /* Horizontal padding */
+  --subscribe-box-radius: 5px;     /* Example: Match button radius */
+  --subscribe-box-border: 1px solid rgba(255, 255, 255, 0.1); /* Optional border for dark */
+  /* OR --subscribe-box-border: 1px solid #eee; for light */
+  --subscribe-title-margin-bottom: 25px;
+  --subscribe-form-margin-bottom: 20px;
+  --subscribe-helper-text-color: #aaa; /* Dimmer color for helper text */
+}
+.footer-list .footer-list-title {
+  /* Choose a size that fits your design */
+  font-size: 2rem; /* Example: Increased from potentially 1.3rem or 1.4rem */
+  /* You can also use px, em, or % */
+  /* font-size: 24px; */
+}
+
+/* Increase Paragraph and Address Text Font Size */
+.footer-list .text {
+   /* Choose a size that fits your design */
+  font-size: 1.5rem; /* Example: Increased from potentially 0.95rem or 1rem */
+   /* You can also use px, em, or % */
+  /* font-size: 17px; */
+
+  /* Optional: Adjust line-height if needed for readability */
+  line-height: 1.7;
+}
+
+/* Optional: If you want the address text slightly different */
+/* .footer-list .address .text { */
+/*   font-size: 1.05rem; /* Example: Slightly smaller than main text */
+/* } */
+
+/* Ensure icon size looks okay with larger text */
+.footer-list .address ion-icon {
+  font-size: 1.rem; /* May need slight increase */
+  margin-top: 4px;  /* May need slight adjustment */
+}
+
+/* Target the specific subscribe list container */
+.footer-list--subscribe {
+  /* If not adding the class, use: .footer-top > .footer-list:last-child */
+
+  background-color: var(--subscribe-box-bg);
+  padding: var(--subscribe-box-padding-y) var(--subscribe-box-padding-x);
+  border-radius: var(--subscribe-box-radius);
+  border: var(--subscribe-box-border); /* Add border if desired */
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+/* Adjust spacing within the box */
+.footer-list--subscribe .footer-list-title {
+  margin-bottom: var(--subscribe-title-margin-bottom);
+  /* Add color override if needed for contrast */
+  /* color: #ffffff; */
+}
+
+.footer-list--subscribe .footer-form {
+  margin-bottom: var(--subscribe-form-margin-bottom);
+}
+
+/* Style the input/button within this specific context if needed */
+/* (Usually inherited styles are fine, but you can override here) */
+/* .footer-list--subscribe .input-field { ... } */
+/* .footer-list--subscribe .btn { ... } */
+
+/* Style the helper text at the bottom */
+.footer-list--subscribe .text {
+  margin-bottom: 0; /* Remove default bottom margin */
+  font-size: 0.9rem; /* Make it slightly smaller */
+  color: var(--subscribe-helper-text-color); /* Use a dimmer color */
+  line-height: 1.4;
+}
+
+.footer-top > .footer-list:last-child {
+  
+   background-color: rgba(255, 255, 255, 0.05); 
+
+  /* --- MODIFICATION START --- */
+  /* Increased vertical padding significantly to make the box longer */
+  /* Using shorthand: top/bottom left/right */
+  padding: 60px 50px 70px 50px; /* Top: 60px, R: 50px, Bottom: 70px, L: 50px */
+  /* Adjust the 60px (top) and 70px (bottom) values as needed */
+  /* --- MODIFICATION END --- */
+
+  border-radius: 8px;
+  margin: -10px; /* Adjust or remove if causing layout issues */
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Increased gap */
+  margin-bottom: 15px; /* Spacing below the form */
+}
+
+.input-field {
+  background-color: var(--footer-input-bg-dark);
+  border: 1px solid var(--footer-input-border-dark);
+  padding: 14px 18px; /* Increased padding */
+  border-radius: 5px;
+  color: var(--footer-input-text);
+  font-size: 1.05rem; /* Slightly Increased font size */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-field::placeholder {
+  color: var(--footer-input-placeholder);
+}
+
+/* Optional: You might want to add more space below the title inside the box */
+.footer-top > .footer-list:last-child .footer-list-title {
+    margin-bottom: 30px; /* Increase space below the "Subscribe" title */
+}
+
+/* Optional: You might want more space below the text after the form */
+.footer-top > .footer-list:last-child .text:last-of-type {
+   margin-top: 20px; /* Add space above the last text element if needed */
+}
+
+.btn.has-before {
+  background-color: var(--primary-color);
+  color: var(--footer-btn-text);
+  border: none;
+  padding: 14px 28px; /* Increased padding */
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+  font-size: 1rem; /* Increased font size */
+  text-align: center;
+  position: relative;
+}
+
+.btn.has-before:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* --- Footer Bottom Section --- */
+.footer-bottom {
+  border-top: 1px solid var(--footer-border-dark);
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.copyright {
+  font-size: 0.95rem; /* Increased font size */
+  color: var(--footer-copyright-dark);
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* --- Social Media Links --- */
+.social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px; /* Slightly increased gap */
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.social-link {
+  color: var(--footer-social-dark);
+  font-size: 1.5rem; /* Increased icon size */
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.social-link:hover {
+  color: var(--footer-social-hover-dark); /* Ensure this contrasts */
+  transform: scale(1.1);
+}
+
+/* --- Back to Top Button --- */
+.back-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: var(--footer-backtop-text);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem; /* Increased icon size */
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.back-top-btn.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-top-btn:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* --- Reveal Animation --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+  transition-delay: var(--delay, 0s);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-list:nth-child(1) { --delay: 0.1s; }
+.footer-list:nth-child(2) { --delay: 0.2s; }
+.footer-list:nth-child(3) { --delay: 0.3s; }
+.footer-list:nth-child(4) { --delay: 0.4s; } /* Subscribe box delay */
+
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  /* Adjust subscribe box styling on mobile if needed */
+  .footer-top > .footer-list:last-child {
+     padding: 20px; /* Maybe reduce padding slightly */
+     margin: 0; /* Reset any negative margin */
+     background-color: transparent; /* Optional: remove background on stack */
+  }
+  
+
+  .address {
+    justify-content: center;
+  }
+
+  .footer-form {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .copyright {
+    text-align: center;
+    order: 2; /* Keep copyright below social icons if preferred */
+  }
+
+  .social-list {
+    justify-content: center;
+    order: 1; /* Keep social icons above copyright if preferred */
+  }
+}
+
+@media (min-width: 500px) {
+  /* Keep subscribe form horizontal layout */
+  .footer-form {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .input-field {
+    flex-grow: 1;
+  }
+  .btn.has-before {
+     flex-shrink: 0;
+  }
+}
+
+/* Adjust footer bottom layout for larger screens */
+@media (min-width: 769px) { /* Match breakpoint used for column stacking */
+  .footer-bottom {
+    flex-direction: row; /* Ensure horizontal layout */
+    justify-content: space-between;
+  }
+  .copyright {
+     order: 1;
+     text-align: left;
+     flex-grow: 0; /* Don't let it grow excessively */
+  }
+  .social-list {
+     order: 2;
+     justify-content: flex-end;
+     flex-grow: 0;
+  }
+}
+  
+  .back-top-btn:is(:hover, :focus-visible) { background-color: var(--eerie-black); }
+  
+  .back-top-btn.active {
+  transform: translateY(-10px);
+  opacity: 1;
+  }
+  
+  
+  @media (min-width: 768px) {
+  
+  :root {
+  
+    
+    --headline-lg: 8rem;
+    --headline-md: 4.8rem;
+  
+  }
+  
+  .container {
+    max-width: 750px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .header .btn { display: block; }
+  
+  .nav-open-btn { margin-inline-start: auto; }
+  
+  .header .container { gap: 40px; }
+  
+  .hero-title { line-height: 1.125; }
+  
+  .hero .wrapper {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .hero-card .input-wrapper { flex-grow: 1; }
+  
+  .hero-card .input-field { height: 100%; }
+  
+  .hero-card .btn {
+    width: max-content;
+    margin-block-start: 0;
+  }
+  
+  .service-list { grid-template-columns: 1fr 1fr; }
+  .about-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .about-banner {
+    max-width: max-content;
+    margin-inline: auto;
+  }
+  
+  .listing .grid-list { grid-template-columns: 1fr 1fr; }
+  
+  .listing .grid-list > li:first-child { grid-column: 1 / 3; }
+  
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  
+  .footer-brand { grid-column: 1 / 3; }
+  
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-bottom .social-list { margin-block-start: 0; }
+  
+  }
+  
+  
+  @media (min-width: 992px) {
+  
+  .container { max-width: 940px; }
+  
+  .hero-banner {
+    display: block;
+    max-width: max-content;
+  }
+  
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  
+  .service-list { grid-template-columns: repeat(4, 1fr); }
+  
+  .about .container {
+    grid-template-columns: 1fr 0.8fr;
+    align-items: flex-end;
+  }
+  
+  .about-content { padding-block-end: var(--section-padding); }
+  
+  .about-banner { margin-inline-end: -80px; }
+  
+  .blog .grid-list { grid-template-columns: 1fr 1fr; }
+  
+  }
+  
+  @media (min-width: 1200px) {
+  
+  .container { max-width: 1200px; }
+  .header { padding-block: 24px; }
+  
+  .nav-open-btn,
+  .overlay,
+  .navbar-top,
+  .navbar .social-list { display: none; }
+  
+  .navbar,
+  .navbar.active,
+  .navbar-list {
+    all: unset;
+    display: block;
+  }
+  
+  .navbar { margin-inline-start: auto; }
+  
+  .navbar-list {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .navbar-item { border-block-start: none; }
+  
+  .navbar-link {
+    --title-md: 1.8rem;
+    font-weight: var(--fw-500);
+    padding-inline: 16px;
+    text-transform: capitalize;
+  }
+  
+  .hero .container {
+    grid-template-columns: 0.8fr 1fr;
+    gap: 96px;
+  }
+  
+  .listing .grid-list { grid-template-columns: repeat(4, 1fr); }
+  
+  .blog .grid-list { grid-template-columns: repeat(3, 1fr); }
+  
+  .footer { background-size: auto; }
+  
+  .footer-top { grid-template-columns: repeat(4, 1fr); }
+  
+  .footer-brand {
+    grid-column: 1 / 5;
+    padding: 28px 56px;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    align-items: center;
+  }
+  
+  .footer .logo { margin-block-end: 0; }
+  
+  .contact-list { justify-content: space-between; }
+  
+  .contact-list::after {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: var(--white_a20);
+  }
+  
+  .contact-item { margin-block-start: 0; }
+  }
+  /back to top/
+  .back-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--verdigris);
+  color: var(--white);
+  padding: 16px;
+  font-size: 2rem;
+  border-radius: var(--radius-circle);
+  transition: var(--transition-1);
+  opacity: 0;
+  z-index: 3;
+}
+/* --- Basic Setup & Dark Theme --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0;           /* Light text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #f5f5f5; /* Slightly brighter heading */
+    text-align: center;
+}
+
+/* --- Slideshow Specific Styles --- */
+
+.slideshow-wrapper {
+    max-width: 200px; /* Adjust max width of the visible area */
+    width: 90%;       /* Responsive width */
+    margin: 0 auto;   /* Center the wrapper */
+    border: 2px solid #444; /* Subtle border for definition */
+    border-radius: 8px;
+    padding: 10px; /* Optional padding around the slideshow */
+    background-color: #2a2a2a; /* Slightly lighter dark shade for contrast */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.images {
+    /* --- Configuration --- */
+    --num-slides: 5; /* IMPORTANT: Set this to the number of *unique* slides */
+    --slide-width: 71px; /* Match your image width OR set desired slide display width */
+    --slide-duration: 2.5s; /* How long each slide stays visible */
+    --transition-time: 0.7s; /* How long the slide transition takes */
+    /* --- End Configuration --- */
+
+    /* Calculation */
+    --total-animation-time: calc(var(--num-slides) * (var(--slide-duration) + var(--transition-time)));
+    --total-items: calc(var(--num-slides) + 1); /* Includes the duplicate slide */
+
+    width: var(--slide-width); /* Container width shows only ONE slide */
+    height: var(--slide-width); /* Use width for square aspect ratio based on image */
+    overflow: hidden; /* CRUCIAL: Hides the other images */
+    position: relative;
+    display: flex; /* Use flex on the inner container holding images */
+
+    /* Animation setup on the flex container */
+    /* The container itself doesn't move, its *content* (images) seems to */
+    /* We will apply animation to a pseudo-element or a nested div if needed */
+    /* Let's try animating the flex container itself by making IT wide */
+    width: calc(var(--slide-width) * var(--total-items)); /* Make container wide enough for all imgs */
+    animation: slideShow var(--total-animation-time) infinite ease-in-out;
+
+    /* Reset wrapper width to show only one */
+    transform: translate3d(0, 0, 0); /* Helps with GPU acceleration */
+}
+
+/* Apply styles directly to images since they are direct children */
+.images img {
+    width: var(--slide-width); /* Ensure each image takes the defined width */
+    height: var(--slide-width); /* Ensure each image takes the defined height */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    display: block; /* Removes extra space below image */
+    object-fit: cover; /* Scales image nicely if aspect ratio differs */
+}
+
+/* Keyframes for the sliding animation */
+@keyframes slideShow {
+    /* Calculate percentages based on timings and total slides */
+    /* Step duration = slide duration + transition time */
+    /* Example for 5 unique slides (6 total items including duplicate) */
+
+    /* Start: Show Slide 1 */
+    0% { transform: translateX(calc(var(--slide-width) * 0 * -1)); }
+    /* Hold Slide 1 */
+    calc(var(--slide-duration) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 0 * -1)); }
+
+    /* Transition to Slide 2 */
+    calc((var(--slide-duration) + var(--transition-time)) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 1 * -1)); }
+     /* Hold Slide 2 */
+    calc((var(--slide-duration) * 2 + var(--transition-time) * 1) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 1 * -1)); }
+
+    /* Transition to Slide 3 */
+    calc((var(--slide-duration) * 2 + var(--transition-time) * 2) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 2 * -1)); }
+    /* Hold Slide 3 */
+    calc((var(--slide-duration) * 3 + var(--transition-time) * 2) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 2 * -1)); }
+
+    /* Transition to Slide 4 */
+    calc((var(--slide-duration) * 3 + var(--transition-time) * 3) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 3 * -1)); }
+    /* Hold Slide 4 */
+    calc((var(--slide-duration) * 4 + var(--transition-time) * 3) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 3 * -1)); }
+
+    /* Transition to Slide 5 */
+    calc((var(--slide-duration) * 4 + var(--transition-time) * 4) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 4 * -1)); }
+    /* Hold Slide 5 */
+    calc((var(--slide-duration) * 5 + var(--transition-time) * 4) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 4 * -1)); }
+
+    /* Transition to Duplicate Slide 1 */
+    calc((var(--slide-duration) * 5 + var(--transition-time) * 5) / var(--total-animation-time) * 100%) { transform: translateX(calc(var(--slide-width) * 5 * -1)); }
+    /* Hold Duplicate Slide 1 briefly before loop restarts */
+    100% { transform: translateX(calc(var(--slide-width) * 5 * -1)); }
+}
+
+
+/* Correction: Apply overflow hidden and size constraints to the wrapper, not the flexing container */
+.slideshow-wrapper .images {
+    /* Reset width/height from previous attempt */
+    width: calc(var(--slide-width) * var(--total-items)); /* Make container wide */
+    height: auto; /* Let height be determined by image */
+    overflow: visible; /* Don't hide overflow here */
+    display: flex;
+}
+
+.slideshow-wrapper { /* The actual viewport */
+    max-width: var(--slide-width); /* Show only one slide's width */
+    height: var(--slide-width);    /* Show only one slide's height */
+    overflow: hidden; /* Hide the rest of the images */
+    /* Keep other wrapper styles: border, padding, background etc */
+    /* ... other wrapper styles ... */
+     margin: 0 auto;
+     border: 2px solid #444;
+     border-radius: 8px;
+     padding: 0; /* Remove padding if border is directly on viewport */
+     background-color: #2a2a2a;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Optional: Pause animation on hover */
+.slideshow-wrapper:hover .images {
+    animation-play-state: paused;
+}
+
+.back-top-btn:is(:hover, :focus-visible) { background-color: var(--eerie-black); }
+
+.back-top-btn.active {
+  transform: translateY(-10px);
+  opacity: 1;
+}

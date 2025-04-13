@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurology</title>
+    <link rel="stylesheet" href="stye3.css"> <!-- Linking the CSS file -->
+</head>
+<body>
+    <h1>Neurology</h1>
+    <p> Neurology is a medical specialty focused on diagnosing and treating diseases and disorders of the nervous system, including the brain, spinal cord, and peripheral nerves
+    </p>
+
+    <h1>Neurologist</h1>
+    <p>
+        A neurologist is a medical doctor specializing in the diagnosis and treatment of disorders of the brain, spinal cord, and nerves. 
+    </p>
+    <img src="neurology 2.jpg" alt="Neurology" width="600" style="display: block; margin: 0 auto;">
+    <a href="http://127.0.0.1:5500/page2.html">Know More</a>
+
+  
+    <br/>
+
+
+    <h1>Best Neurologists of India</h1>
+
+    <div class="doctor-section">
+        <div class="doctor-card">
+            <a href="https://www.apollohospitals.com/">Dr Bharathi Sundar M</a>
+            <a href="tel:18605001066">Call : 18605001066</a> 
+            <img src="drbharti.webp" width="250" height="250" alt="Dr Bharathi Sundar M">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://advanceneurohospital.com/">Dr. Udayan Narayan</a>
+            <a href="tel:9304996619">Call : 9304996619</a> 
+            <img src="Dr. Udayan Narayan.png" width="250" height="250" alt="Dr. Udayan Narayan">
+        </div>
+
+        <div class="doctor-card">
+            <a href="http://www.indianneurology.com/dr_praveen_gupta.html/">Dr Praveen Gupta  </a>
+            <a href="tel:1800-11-7776">Call :1800-11-7776 </a> 
+            <img src="praveengupta250.webp" width="250" height="250" alt="Dr Praveen Gupta">
+        </div>
+    </div>
+    <div id="imgModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" alt="Doctor Enlarged">
+    </div>
+    <script>
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        const doctorImages = document.querySelectorAll(".doctor-card img");
+    
+        doctorImages.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+            });
+        });
+    
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    
+        // Optional: Close modal when clicking outside the image
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+    
+</body>
+</html>

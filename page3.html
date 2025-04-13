@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthopedics</title>
+    <link rel="stylesheet" href="stye2.css"> <!-- Linking the CSS file -->
+</head>
+<body>
+    <h1>Orthopedics</h1>
+    <p> Orthopedics, also known as orthopedic surgery, is a medical specialty focused on diagnosing and treating injuries and diseases of the musculoskeletal system, which includes bones, joints, muscles, ligaments, and tendons. 
+    </p>
+
+    <h1>Orthopedist</h1>
+    <p>
+        The doctor who performs orthopedics is called an orthopedic surgeon or orthopedist. They specialize in diagnosing and treating conditions and injuries related to the musculoskeletal system, which includes bones, joints, muscles, ligaments, tendons, and nerves. 
+    </p>
+    <img src="ortho2.jpg" alt="Orthopedics" width="600" style="display: block; margin: 0 auto;">
+
+  
+    <br/>
+
+
+    <h1>Best Orthopedists of India</h1>
+
+    <div class="doctor-section">
+        <div class="doctor-card">
+            <a href="https://www.apollo247.com/">Dr. Abhishek Kumar Mishra</a>
+            <a href="tel:923-444-5454">Call : 923-444-5454</a> 
+            <img src="drmishra.png" width="250" height="250" alt="Dr. Abhishek Kumar Mishra">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://www.orthopatna.com/">Dr. Ashwini Gaurav</a>
+            <a href="tel:9386737895">Call : 9386737895</a> 
+            <img src="Dr.-Ashwini-Gaurav.jpg" width="250" height="250" alt="Dr. Ashwini Gaurav">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://www.medanta.org/">Dr Rajiv Ranjan Sinha </a>
+            <a href="tel:880-000-1068">Call : 880-000-1068</a>
+            <img src="rajivranjan.png" width="250" height="250" alt="Dr Rajiv Ranjan Sinha">
+        </div>
+    </div>
+    <div id="imgModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" alt="Doctor Enlarged">
+    </div>
+    <script>
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        const doctorImages = document.querySelectorAll(".doctor-card img");
+    
+        doctorImages.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+            });
+        });
+    
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    
+        // Optional: Close modal when clicking outside the image
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+    
+</body>
+</html>

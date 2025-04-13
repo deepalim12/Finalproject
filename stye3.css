@@ -1,0 +1,125 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonts and Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #d6f1fd;
+    color: #333;
+    padding: 20px;
+}
+
+/* Headings */
+h1{
+    text-align: center;
+    background-color: blue;
+    margin-bottom: 20px;
+    color: #50f54a;
+}
+
+p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
+}
+
+/* Centered Image */
+img[alt="Gynaec"] {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Doctor Section Styling */
+.doctor-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+
+.doctor-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 270px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-card a {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2980b9;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.doctor-card a:hover {
+    color: #1abc9c;
+}
+
+/* Image Styling */
+.doctor-card img {
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Fullscreen Image Modal (Click to Enlarge) */
+#imgModal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+#imgModal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#imgModal:target {
+    display: flex;
+}
+
+#imgModal span {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gynaecologist</title>
+    <link rel="stylesheet" href="stye1.css"> <!-- Linking the CSS file -->
+</head>
+<body>
+    <h1>Gynaecology</h1>
+    <p>Gynaecology is a medical specialty focused on the health of the female reproductive system, including the diagnosis and treatment of diseases related to it. It's often studied in conjunction with obstetrics, which focuses on pregnancy and childbirth, forming the combined field of obstetrics and gynaecology. 
+    </p>
+
+    <h1>Gynaecologist</h1>
+    <p>
+        Gynecologists give reproductive and sexual health services that include pelvic exams, Pap tests, cancer screenings, and testing and treatment for vaginal infections. They diagnose and treat reproductive system disorders such as endometriosis, infertility, ovarian cysts, and pelvic pain.
+    </p>
+    <img src="gynae.jpg" alt="Gynaec" width="600" style="display: block; margin: 0 auto;">
+
+  
+    <br/>
+
+
+    <h1>Best Gynaecologist of India</h1>
+
+    <div class="doctor-section">
+        <div class="doctor-card">
+            <a href="https://www.indicure.com/">Dr. Bindu Garg</a>
+            <a href="tel:932-003-6777">Call : 932-003-6777</a> 
+                
+            <img src="dr-bindu-garg.webp" width="250" height="250" alt="Dr. Bindu Garg">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://popularmaternitycentre.com/">Dr Megha Sarakshi Chadha</a>
+            <a href="tel:7764950853">Call : 7764950853</a>
+            <img src="DrMegha.jpg" width="250" height="250" alt="Dr Megha Sarakshi Chadha">
+        </div>
+
+        <div class="doctor-card">
+            <a href="https://www.maxhealthcare.in/">Dr S.N. Basu</a>
+            <a href="tel:7764950853">Call : 7764950853</a>
+            <img src="snbanu.jpg" width="250" height="250" alt="Dr S.N. Basu">
+        </div>
+    </div>
+    <div id="imgModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" alt="Doctor Enlarged">
+    </div>
+    <script>
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        const doctorImages = document.querySelectorAll(".doctor-card img");
+    
+        doctorImages.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+            });
+        });
+    
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    
+        // Optional: Close modal when clicking outside the image
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+    
+</body>
+</html>
